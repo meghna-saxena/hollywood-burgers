@@ -11,6 +11,8 @@ const controls = [
 
 const buildControls = (props) => (
     <div className={classes.Buildcontrols}>
+        <p>Current price: <strong>{props.price.toFixed(2)}</strong></p>
+        {/* fix it to 2 decimal places */}
         {controls.map(ctrl => (
             <BuildControl
                 key={ctrl.label}
