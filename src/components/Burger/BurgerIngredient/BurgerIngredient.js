@@ -10,7 +10,6 @@ class BurgerIngredient extends Component {
             case ('bread-bottom'):
                 ingredient = <div className={classes.BreadBottom}></div>;
                 break;
-
             case ('bread-top'):
                 ingredient = (
                     <div className={classes.BreadTop}>
@@ -48,7 +47,7 @@ BurgerIngredient.propTypes = {
         "cheese",
         "salad",
         "bacon"
-      ]).isRequired
+    ]).isRequired
 };
 
 export default BurgerIngredient;

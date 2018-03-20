@@ -2,26 +2,35 @@ import React from 'react';
 import classes from './Burger.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 
+/*
+{
+    salad: 3,
+    bacon: 3,
+    cheese: 2,
+    meat: 1
+}
+*/
 const burger = (props) => {
-    let transformedIngredients = Object.keys(props.ingredients)
+    debugger;
+    const allIngredients = Object.keys(props.ingredients) // Items
         .map(igKey => {
-            return [...Array(props.ingredients[igKey])].map((_, i) => {
-                // console.log([...Array(props.ingredients[igKey])]);
-                // console.log(igKey);
-                // console.log("value of i" + i);
+            const itemCount = props.ingredients[igKey]; //igValue
+            return [...Array(itemCount)] // Array of undefineds of size = itemCount
+                        .map((_, i) => {;
                 return <BurgerIngredient key={igKey + i} type={igKey} />;
             });
         })
-        // console.log(transformedIngredients);
+        // [ Salad[3], bacon[1], cheese[2], meat[3] ]
 
         // .reduce((arr, el) => {
         //     return arr.concat(el)
         // }, []);
-
-        .reduce((arr, el) => {
+    const reducerfunction = (arr, el) => {
             //flattens the array
             return [...arr, ...el];// ES5 version is arr.concat(el);
-       }, []);
+       }
+
+    let transformedIngredients = allIngredients.reduce(reducerfunction, []);
 
     if (transformedIngredients.length === 0) {
         transformedIngredients = <p>Please start adding ingredients!</p>;
