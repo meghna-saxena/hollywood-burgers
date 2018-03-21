@@ -23,10 +23,6 @@ class BurgerBuilder extends Component {
     }
 
     updatePurchaseSate (ingredients) {
-        // const ingredients = {
-        //     ...this.state.ingredients
-        // };
-
         const sum = Object.keys(ingredients)
         .map(igKey => {
             return ingredients[igKey];
@@ -60,7 +56,7 @@ class BurgerBuilder extends Component {
         const oldCount = this.state.ingredients[type];
         if (oldCount <= 0) {
             return;
-        } // this checks that no error occurs if reduce starts deudcting ingredients we don't have, i.e 0 value. 
+        } // this checks that no error occurs if reduce starts deducting ingredients we don't have, i.e 0 value. 
         const updatedCount = oldCount - 1;
         const updatedIngredients = {
             ...this.state.ingredients

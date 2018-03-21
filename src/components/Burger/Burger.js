@@ -11,7 +11,7 @@ import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 }
 */
 const burger = (props) => {
-    debugger;
+    // debugger;
     const allIngredients = Object.keys(props.ingredients) // Items
         .map(igKey => {
             const itemCount = props.ingredients[igKey]; //igValue
