@@ -58,10 +58,18 @@ ReactDOM.render(<MyParent />, document.getElementById('root'));
 ## Fragment
 Wrapping your multiple DOM elements inside a single returned  <Fragment> Component is more efficient than wrapping your multiple elements inside a single returned  <div> Component. 
 
-A Fragment does not create additional nodes,  like a  <div> does. 
+A Fragment does not create additional nodes, like a <div> does. 
+
+The idea behind HOC/Aux is to circumvent the restriction of JSX to not have sibling elements on a root level. You could use a <div> but the advantage of <Aux> is that it doesn't render an unnecessary element.
 
 EXTRA  INFORMATION: 
 
 - <Fragment>  syntax does not accept attributes,  but,  it can have key and children (props). 
 - <Fragment>  won’t add an actual element to the DOM. 
 - <></> in not guaranteed to work. <Fragment> is currently dependable. 
+
+
+## Layout Component, we're using in project
+Layout just as a higher order component that can be wrapped around whatever should go into that layout. Hence, placing the BurgerBuilder inside <Layout> in the App.js file.
+
+This will wrap it with the layout and still lay out the app structure in the main app file.
