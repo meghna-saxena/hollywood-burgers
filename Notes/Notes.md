@@ -146,7 +146,7 @@ const transformedIngredients = Object.keys(props.ingredients).map(igKey => {
     //[Array(1), Array(1), Array(2), Array(2)]
 
 ```
-
+s
 ```
 const burger = (props) => {
     const transformedIngredients = Object.keys(props.ingredients).map(igKey => {
@@ -165,4 +165,33 @@ const burger = (props) => {
         </div>
     );
 }
+```
+
+Summary:
+First, the Object.keys(props.ingredients) returns an array containing the keys, i.e., the ingredient names. Using the map function on this array, we construct a new array using the Array() function by passing the number of times each ingredient must be added, (which is the value in the original ingredients object passed as props) as the value. Then for each array of specific ingredients, we return the JSX containing the BurgerIngredient component.
+
+In short, we are extracting the keys of the ingredients into an array, then for each ingredient in that array, we are creating a new array with that ingredient present as many times as specified in the value, then for each element of that array (the second one), we are generating JSX.
+
+
+
+Another approach:
+
+```
+ let transformedIngredients = [];
+
+    Object.keys(props.ingredients).map(igKey => {
+        let count = props.ingredients[igKey];
+
+        for (let i = 0; i < count; i++) {
+            transformedIngredients.push(igKey);
+        }
+    })
+
+    transformedIngredients = transformedIngredients.map((igKey, i) => {
+        return <BurgerIngredient key={igKey + i} type={igKey} />
+    });
+
+    console.log('transformedIngredients', transformedIngredients);
+    // [{…}, {…}, {…}, {…}, {…}, {…}]
+
 ```
