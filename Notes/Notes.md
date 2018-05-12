@@ -113,6 +113,7 @@ Note: Media queries are used so that burger looks good in all view ports.
 ## Converting object into array
 
 > BurgerBuilder.js
+- Since ingredients is an object and we cant map over it to pass each element into BurgerIngredients.js, we've to convert object into array!
 
 ```
 class BurgerBuilder extends Component {
@@ -128,6 +129,7 @@ class BurgerBuilder extends Component {
 
 ```
 
+- Get an array of keys, by  Object.keys(props.ingredients);
 
 > Burger.js
 
@@ -138,6 +140,7 @@ const transformedIngredients = Object.keys(props.ingredients);
     //["salad", "bacon", "cheese", "meat"]
 ```
 
+- Map over the array containing keys and return a new array with size of Array(props.ingredients[igKey]), since the size will be 4, but the values will be undefined, spread over it!
 ```
 const transformedIngredients = Object.keys(props.ingredients).map(igKey => {
         return [...Array(props.ingredients[igKey])]
@@ -146,7 +149,8 @@ const transformedIngredients = Object.keys(props.ingredients).map(igKey => {
     //[Array(1), Array(1), Array(2), Array(2)]
 
 ```
-s
+- Finally return the elements one by one to burgeringredient component
+
 ```
 const burger = (props) => {
     const transformedIngredients = Object.keys(props.ingredients).map(igKey => {
@@ -194,4 +198,46 @@ Another approach:
     console.log('transformedIngredients', transformedIngredients);
     // [{…}, {…}, {…}, {…}, {…}, {…}]
 
+```
+
+## Flatten the array
+
+ //Earlier: [Array(1), Array(1), Array(2), Array(2)] && now: transformedIngredients []
+
+- The reduce() method applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value.
+
+Flatten an array of arrays
+```
+var flattened = [[0, 1], [2, 3], [4, 5]].reduce(
+  function(accumulator, currentValue) {
+    return accumulator.concat(currentValue);
+  },
+  []
+);
+// flattened is [0, 1, 2, 3, 4, 5]
+Alternatively, written with an arrow function:
+
+var flattened = [[0, 1], [2, 3], [4, 5]].reduce(
+  ( accumulator, currentValue ) => accumulator.concat(currentValue),
+  []
+);
+
+```
+
+
+Apply the same logic on the burger component
+
+```
+let transformedIngredients = Object.keys(props.ingredients).map(igKey => {
+        return [...Array(props.ingredients[igKey])].map((_, i) => {
+            // console.log('[new array]', [...Array(props.ingredients[igKey])]);
+            // console.log('igkey', igKey);
+            // console.log('value of i' + i);
+            return <BurgerIngredient key={igKey + i} type={igKey} />
+        });
+    })
+
+    .reduce((arr, el) => {
+        return arr.concat(el) // return [...arr, ...el]
+    }, []);
 ```

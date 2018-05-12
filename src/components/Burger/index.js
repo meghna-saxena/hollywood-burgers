@@ -3,16 +3,33 @@ import classes from './Burger.css';
 import BurgerIngredient from './BurgerIngredient';
 
 const burger = (props) => {
-    const transformedIngredients = Object.keys(props.ingredients).map(igKey => {
+    let transformedIngredients = Object.keys(props.ingredients).map(igKey => {
         return [...Array(props.ingredients[igKey])].map((_, i) => {
             // console.log('[new array]', [...Array(props.ingredients[igKey])]);
             // console.log('igkey', igKey);
             // console.log('value of i' + i);
             return <BurgerIngredient key={igKey + i} type={igKey} />
-        })
-    });
+        });
+    })
 
-    console.log('transformedIngredients', transformedIngredients); //[Array(1), Array(1), Array(2), Array(2)]
+    //Flatten the array
+    .reduce((arr, el) => {
+        // return arr.concat(el)
+        return [...arr, ...el]
+    }, []);
+
+    console.log('transformedIngredients', transformedIngredients); 
+    //Earlier: [Array(1), Array(1), Array(2), Array(2)] && now: transformedIngredients []
+
+    if (transformedIngredients.length === 0) {
+        transformedIngredients = <p>Please start adding ingredients!</p>
+    }
+
+    
+
+    // ===================================================================
+    // Another approach to convert object into an array
+    // ===================================================================
 
     // let transformedIngredients = [];
 
@@ -28,7 +45,7 @@ const burger = (props) => {
     //     return <BurgerIngredient key={igKey + i} type={igKey} />
     // });
 
-    console.log('transformedIngredients', transformedIngredients);
+    // console.log('transformedIngredients', transformedIngredients);
 
     return (
         <div className={classes.Burger}>
