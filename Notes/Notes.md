@@ -106,3 +106,5 @@ Instead of typing this prop as string, we can directly check what's value this p
       "bacon"
     ]).isRequired
 ```
+
+Note: Media queries are used so that burger looks good in all view ports.
