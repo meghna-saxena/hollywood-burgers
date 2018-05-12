@@ -73,3 +73,36 @@ EXTRA  INFORMATION:
 Layout just as a higher order component that can be wrapped around whatever should go into that layout. Hence, placing the BurgerBuilder inside <Layout> in the App.js file.
 
 This will wrap it with the layout and still lay out the app structure in the main app file.
+
+
+## Proptypes
+- Proptypes can be used in class component, so refactor function BurgerIngredient comp to class comp. However, since it doesnt handles state, so it's still considered a dumb component.
+
+
+However conversion from functional to classical components is not required to use propTypes
+
+Classes are just constructor functions under the hood and constructor functions are just functions and functions are objects in JavaScript.
+
+```
+burgerIngredient.propTypes = {
+    type: PropTypes.string.isRequired
+}
+```
+
+Adding propTypes to burgerIngredient as a property is totally valid regardless if burgerIngredient is a functional or a classical component. 
+
+
+> propType suggestion
+
+Instead of typing this prop as string, we can directly check what's value this props can be
+
+```
+ type: PropTypes.oneOf([
+      "bread-bottom",
+      "bread-top",
+      "meat",
+      "cheese",
+      "salad",
+      "bacon"
+    ]).isRequired
+```
