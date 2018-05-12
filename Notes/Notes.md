@@ -108,3 +108,61 @@ Instead of typing this prop as string, we can directly check what's value this p
 ```
 
 Note: Media queries are used so that burger looks good in all view ports.
+
+
+## Converting object into array
+
+> BurgerBuilder.js
+
+```
+class BurgerBuilder extends Component {
+    state = {
+        ingredients: {
+            salad: 1,
+            bacon: 1,
+            cheese: 2,
+            meat: 2
+        }
+    };
+...
+
+```
+
+
+> Burger.js
+
+Step-by-step
+```
+const transformedIngredients = Object.keys(props.ingredients);
+    console.log('transformedIngredients', transformedIngredients);
+    //["salad", "bacon", "cheese", "meat"]
+```
+
+```
+const transformedIngredients = Object.keys(props.ingredients).map(igKey => {
+        return [...Array(props.ingredients[igKey])]
+    })
+    console.log('transformedIngredients', transformedIngredients);
+    //[Array(1), Array(1), Array(2), Array(2)]
+
+```
+
+```
+const burger = (props) => {
+    const transformedIngredients = Object.keys(props.ingredients).map(igKey => {
+        return [...Array(props.ingredients[igKey])].map((_, i) => {
+            return <BurgerIngredient key={igKey + i} type={igKey} />
+        })
+    })
+
+    console.log('transformedIngredients', transformedIngredients);
+
+    return (
+        <div className={classes.Burger}>
+            <BurgerIngredient type="bread-top" />
+            {transformedIngredients}
+            <BurgerIngredient type="bread-bottom" />
+        </div>
+    );
+}
+```
