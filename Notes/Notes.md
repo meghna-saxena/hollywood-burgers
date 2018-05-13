@@ -330,3 +330,14 @@ Passing the reference to this handler across build controls where (type) is send
 ## Display price above controls
 - pass the totalPrice set in state to the controls comp
 - fixed the value by tofixed(2) method
+
+## Added order button
+Made a `purchasable` property in state with initial state value false. Set state to true whenever some item is added. Therefore made a handler where total ingredients are added to get the sum. And if sum>0, set purchasable state to true.
+
+
+## Order summary modal
+- Made new property `purchasing` in state and set it to false
+- Made an onclick event on the order btn. 
+- Whenever the btn is clicked it will execute a function where `purchasing` will be set to true
+- Pass this `purchasing` property as `show` attribute in modal
+- Put the conditions of css depending on the true or false value 
