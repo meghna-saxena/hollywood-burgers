@@ -320,8 +320,13 @@ Passing the reference to this handler across build controls where (type) is send
 
 
 ### Removing ingredients
-Make removehandler where you update the price and ingredients.
+- Make removehandler where you update the price and ingredients.
 
-Make a base condition that if ingredient[type] <=0 return or if ingredient[type]>0 then execute the rest of the operation.
+- Make a base condition that if ingredient[type] <=0 return or if ingredient[type]>0 then execute the rest of the operation.
 
-Also, we can disbale the button by doing a for..in loop, getting keys/type of ingredient obj and checking if they are <= 0, then disabled them. Button has the css properties.
+- Also, we can disbale the button by doing a for..in loop, getting keys/type of ingredient obj and checking if they are <= 0, then disabled them. Button has the css properties.
+
+
+## Display price above controls
+- pass the totalPrice set in state to the controls comp
+- fixed the value by tofixed(2) method
