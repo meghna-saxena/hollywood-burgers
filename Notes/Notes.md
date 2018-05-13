@@ -283,6 +283,7 @@ ingredients.map(ig => {
 
 ## Connecting state to build controls
 
+### Adding ingredients 
 - Made addIngredientHandler = (type) => {...}
 updating price and ingredients depending on the types passed 
 
@@ -308,7 +309,7 @@ addIngredientHandler = (type) => {
     }
 ```
 
-Passing the reference to this handler across build controls where (type) is send as a param.
+Passing the reference to this handler across build controls where (type) is send as a param of the funct. It will no be executed immediately since its wrapped with a anony callback func.
 
 ```
   <BuildControl
@@ -316,3 +317,11 @@ Passing the reference to this handler across build controls where (type) is send
                 label={ctrl.label}
                 added={() => props.ingredientAdded(ctrl.type)} />
 ```
+
+
+### Removing ingredients
+Make removehandler where you update the price and ingredients.
+
+Make a base condition that if ingredient[type] <=0 return or if ingredient[type]>0 then execute the rest of the operation.
+
+Also, we can disbale the button by doing a for..in loop, getting keys/type of ingredient obj and checking if they are <= 0, then disabled them. Button has the css properties.

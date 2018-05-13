@@ -14,8 +14,8 @@ class BurgerBuilder extends Component {
         ingredients: {
             salad: 0,
             bacon: 0,
-            cheese: 2,
-            meat: 2
+            cheese: 0,
+            meat: 0
         },
         totalPrice: 4
     };
@@ -40,16 +40,61 @@ class BurgerBuilder extends Component {
         });
     }
 
-    removeIngredientHandler = () => {
+    removeIngredientHandler = (type) => {
+        const oldCount = this.state.ingredients[type];
+        // if (oldCount <= 0) {
+        //     return;
+        // }
+        const updatedCount = oldCount - 1;
 
+        const updatedIngredients = {
+            ...this.state.ingredients
+        };
+
+        updatedIngredients[type] = updatedCount;
+
+        const priceDeduction = INGREDIENT_PRICES[type];
+        const oldPrice = this.state.totalPrice;
+        const newPrice = oldPrice - priceDeduction;
+
+        this.setState({
+            totalPrice: newPrice,
+            ingredients: updatedIngredients
+        });
     }
 
     render() {
+        const disabledInfo = { ...this.state.ingredients }; // {salad: 1, bacon: 2, ...}
+
+        const keys = Object.keys(disabledInfo) //array of keys [salad, bacon, ..]
+
+        // for (let i = 0; i < keys.length; i++) {
+        //     const key = keys[i]
+        //     disabledInfo[key] = disabledInfo[key] <= 0 
+
+        // }
+        // console.log(disabledInfo);
+
+        // keys.map(key => {
+        //     disabledInfo[key] = disabledInfo[key] <= 0 
+        //     return 0;
+        // })
+
+        // console.log('x', disabledInfo);
+
+
+        for (let type in disabledInfo) {
+            disabledInfo[type] = disabledInfo[type] <= 0
+        }
+
         return (
             <Fragment>
                 <Burger ingredients={this.state.ingredients} />
                 <BuildControls
-                    ingredientAdded={this.addIngredientHandler} />
+                    ingredientAdded={this.addIngredientHandler}
+                    ingredientRemoved={this.removeIngredientHandler}
+                    disabled={disabledInfo}
+                />
             </Fragment>
         );
     }
