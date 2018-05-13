@@ -272,3 +272,47 @@ ingredients.map(ig => {
 "bacon"
 "bacon"
 "bacon"
+
+
+
+## Build Controls
+- Build Controls component contains controls array which has many labels, it loops over it and pass it to BuildControl component
+
+- Build Control component has label and 2 buttons
+
+
+## Connecting state to build controls
+
+- Made addIngredientHandler = (type) => {...}
+updating price and ingredients depending on the types passed 
+
+```
+addIngredientHandler = (type) => {
+        const oldCount = this.state.ingredients[type];
+        const updatedCount = oldCount + 1;
+
+        const updatedIngredients = {
+            ...this.state.ingredients
+        };
+
+        updatedIngredients[type] = updatedCount;
+
+        const priceAddition = INGREDIENT_PRICES[type];
+        const oldPrice = this.state.totalPrice;
+        const newPrice = oldPrice + priceAddition;
+
+        this.setState({
+            totalPrice: newPrice,
+            ingredients: updatedIngredients
+        });
+    }
+```
+
+Passing the reference to this handler across build controls where (type) is send as a param.
+
+```
+  <BuildControl
+                key={ctrl.label}
+                label={ctrl.label}
+                added={() => props.ingredientAdded(ctrl.type)} />
+```
