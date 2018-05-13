@@ -241,3 +241,34 @@ let transformedIngredients = Object.keys(props.ingredients).map(igKey => {
         return arr.concat(el) // return [...arr, ...el]
     }, []);
 ```
+
+
+## Tried another way to set my initial state
+
+```
+const ingredients = [
+  {type: "cheese", count: 2},
+  {type: "bacon", count: 3}
+  ];
+
+ingredients.map(ig => {
+  let igCount = ig["count"]
+  
+  const transformedIngredients = [...Array(igCount)];
+  console.log(transformedIngredients);
+  
+  transformedIngredients.map(x => {
+  console.log(ig.type);
+  return ig.type
+})
+})
+```
+
+> Console
+[undefined, undefined]
+"cheese"
+"cheese"
+[undefined, undefined, undefined]
+"bacon"
+"bacon"
+"bacon"

@@ -25,8 +25,6 @@ const burger = (props) => {
         transformedIngredients = <p>Please start adding ingredients!</p>
     }
 
-    
-
     // ===================================================================
     // Another approach to convert object into an array
     // ===================================================================
