@@ -341,3 +341,10 @@ Made a `purchasable` property in state with initial state value false. Set state
 - Whenever the btn is clicked it will execute a function where `purchasing` will be set to true
 - Pass this `purchasing` property as `show` attribute in modal
 - Put the conditions of css depending on the true or false value 
+
+
+## Implementing the backdrop component
+Added styling
+
+
+## Added custom button to continue or cancel the order summary
