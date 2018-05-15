@@ -347,4 +347,8 @@ Made a `purchasable` property in state with initial state value false. Set state
 Added styling
 
 
-## Added custom button to continue or cancel the order summary
+## Added custom button to continue or cancel in the order summary
+
+## Adding toolbar and sidedrawer
+
+
