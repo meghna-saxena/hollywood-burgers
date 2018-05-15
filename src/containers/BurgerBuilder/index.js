@@ -100,7 +100,7 @@ class BurgerBuilder extends Component {
     render() {
         const disabledInfo = { ...this.state.ingredients }; // {salad: 1, bacon: 2, ...}
 
-        const keys = Object.keys(disabledInfo) //array of keys [salad, bacon, ..]
+        // const keys = Object.keys(disabledInfo) //array of keys [salad, bacon, ..]
 
         // for (let i = 0; i < keys.length; i++) {
         //     const key = keys[i]
