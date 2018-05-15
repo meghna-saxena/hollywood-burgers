@@ -350,5 +350,17 @@ Added styling
 ## Added custom button to continue or cancel in the order summary
 
 ## Adding toolbar and sidedrawer
+- Need for navigating to other pages
+- Sidedrawer for mobile layouts
+
+
+Note: Flexbox is great for one-dimensional layouts - a navbar for example (which is only horizontal). CSS grid is great for two-dimensional layouts.
+
+Sometimes you need both, sometimes flexbox (or CSS grid) alone is enough. One thing to keep in mind is that CSS grid is a bit worse supported right now though.
+
+- Adding reusable navigation items in toolbar since they will be used again in side-drawer.
+
+- Responsive sidedrawer
+- consists of sidedrawer itself and a toggle button, and a backdrop
 
 
