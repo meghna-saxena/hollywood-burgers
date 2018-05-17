@@ -437,3 +437,6 @@ purchaseContinueHandler = () => {
 - Add ingredients in firebase database
 - Get the url from there
 - Make an axios.get() request and add .json at the end of the url
+
+## Remove old interceptors
+- To prevent memory leak
