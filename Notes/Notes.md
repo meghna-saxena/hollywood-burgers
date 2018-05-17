@@ -440,3 +440,9 @@ purchaseContinueHandler = () => {
 
 ## Remove old interceptors
 - To prevent memory leak
+
+
+## Adding routing to burger project
+- Add checkout form before saving the order in the backend
+- When user clicks checkout show checkout summary and if he clicks continue show contact form
+- made checkout summary component where burger preview + cancel and continue buttons are present
