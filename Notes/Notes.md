@@ -364,3 +364,53 @@ Sometimes you need both, sometimes flexbox (or CSS grid) alone is enough. One th
 - consists of sidedrawer itself and a toggle button, and a backdrop
 
 
+
+# Firebase
+- Implementing backend server to store orders and retrieve them
+- Firebase made by Google is a working backend with database
+- Firebase does the mapping of API endpoints and database
+- We just have to send the data to endpoints and it gets stored in database
+
+
+# Added axios 
+Different ways of including axios in project:
+- Creating an instance of axios
+- Importing globally and setting some defaults
+
+- Here, created instance of axios, since we won't be using baseURL as global default. We'll be using diff url for authorization
+
+## Storing data
+- Make axios.post() request inside burgerbuilder.js, there is purchaseContinueHandler(), where we manage the checkout button
+- Take the order and store it with some dummy data appended to it to the database
+- `axios.post('/orders.json')` //for firebase exclusively we use this pattern for url where baseurl/any node name + .json, it is the endpoint to be targetted
+- Now we also need to send some data
+
+Note: 
+- For practice purpose we're getting total price and ingredients locally, but in real app calculate the total price on the backend server bcause you would have all your products stored there, to avoid user manipulating the data
+
+- Since we're not having a checkout form, we're making some dummy customer data to be stored on database
+
+```
+purchaseContinueHandler = () => {
+        // alert('Work in progress..');
+        const order = {
+            ingredients: this.state.ingredients,
+            price: this.state.totalPrice,
+            customer: {
+                name: 'Meggie Saxena',
+                address: {
+                    street: 'TestStreet 1',
+                    zipCode: '42944',
+                    country: 'Germany'
+                },
+                email: 'test@test.com'
+            },
+            deliveryMethod: 'fastest'
+        }
+        axios.post('/orders.json', order)
+            .then(response => console.log(response))
+            .catch(error => console.log(error));
+    }
+```
+
+- Inside firebase, the data gets stored - we see the orders node name - inside which there is encrypted name. Firebase automatically creates a list under the node and each list item has unique name/id
