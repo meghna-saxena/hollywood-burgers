@@ -414,3 +414,13 @@ purchaseContinueHandler = () => {
 ```
 
 - Inside firebase, the data gets stored - we see the orders node name - inside which there is encrypted name. Firebase automatically creates a list under the node and each list item has unique name/id
+
+
+## Displaying a spinner while sending a request
+- Show something to user when the req is on its way
+- - A spinner inside the modal, instead of order summary user sees a spinner there, and once the req resolves the modal gets closed.
+
+- Add a spinner component inide UI components
+- Added css spinner code
+- Inside burgerbuilder.js, added new state property loading: false and change it conditionally when user continues purchase.
+- Inside modal, we keep a check that show either spinner or order summary depending on the case.
