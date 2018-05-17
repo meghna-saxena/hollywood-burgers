@@ -424,3 +424,9 @@ purchaseContinueHandler = () => {
 - Added css spinner code
 - Inside burgerbuilder.js, added new state property loading: false and change it conditionally when user continues purchase.
 - Inside modal, we keep a check that show either spinner or order summary depending on the case.
+
+
+## Handling errors if http request fails
+- setup global error handler which show some modal with error msg. This modal is another one, it is added at a higher level in the application.
+- Wrap burger builder component with a HOC which adds this functionality of showing an error modal
+- `withErrorHandler` another way of using hoc which is used on export statements and not jsx code
