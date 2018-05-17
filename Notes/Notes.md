@@ -430,3 +430,10 @@ purchaseContinueHandler = () => {
 - setup global error handler which show some modal with error msg. This modal is another one, it is added at a higher level in the application.
 - Wrap burger builder component with a HOC which adds this functionality of showing an error modal
 - `withErrorHandler` another way of using hoc which is used on export statements and not jsx code
+
+
+## Retrieving data from the backend
+- Get the ingredients dynamically from the backend
+- Add ingredients in firebase database
+- Get the url from there
+- Make an axios.get() request and add .json at the end of the url
