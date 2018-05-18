@@ -453,6 +453,8 @@ purchaseContinueHandler = () => {
 - Wrap everything we want to route with browser router, so wrap whole pp component with browser router
 
 ```
+import { BrowserRouter } from 'react-router-dom';
+
 const app = (
     <BrowserRouter>
         <App />
@@ -464,3 +466,14 @@ ReactDOM.render(app, document.getElementById('root'));
 ```
 
 - Now routing is enabled so, setup some routes
+> App.js
+
+```
+<Switch>
+    <Route path="/checkout" component={Checkout} />
+    <Route path="/" exact component={BurgerBuilder} />
+</Switch>
+```
+
+- exact is used to mention the specific path.
+- If switch is used order of routes is important, since it loads the first path which matches the url
