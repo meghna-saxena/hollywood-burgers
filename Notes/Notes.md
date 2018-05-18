@@ -493,3 +493,55 @@ this.props.history.push('/checkout');
  - - The nested component inside burger builder comp doesnt have access to props, they have to be passed manually
  - - Howver if we use a hoc (withRouter) provided by react-router-dom we can inject the special props inside any component
  - - wrap the export statement with withRouter and then console.log(props) -> match, history props would be available
+
+
+ ## Navigating back & to the next page
+
+ - goBack and replace are another properties by history which are used to navigate back and forth.
+ - replace() is interesting in cases where you want to prevent that a user can go back using the back button (e.g. after logging a user out).
+ 
+```
+checkoutCanceledHandler = () => {
+        this.props.history.goBack();    
+    }
+
+    checkoutContinuedHandler = () => {
+        this.props.history.replace('/checkout/contact-data');
+}
+
+```
+
+## Passing ingredients via query params 
+- To show the actual preview of burger with actual quantity of ingredients
+
+> BurgerBuilder.js
+
+```
+const queryParams = [];
+        for (let i in this.state.ingredients) {
+            queryParams.push(encodeURIComponent(i) + "=" + encodeURIComponent(this.state.ingredients[i]));
+        }
+
+        const queryString =queryParams.join('&');
+
+        this.props.history.push({
+            pathname: '/checkout',
+            search: '?' + queryString
+        });
+```
+
+> Checkout.js
+
+```
+ componentDidMount() {
+        const query = new URLSearchParams(this.props.location.search);
+        const ingredients = {};
+
+        for (let param of query.entries()) {
+            // ['salad', '1']
+            ingredients[param[0]] = +param[1];
+        }
+
+        this.setState({ ingredients: ingredients });
+    }
+```
