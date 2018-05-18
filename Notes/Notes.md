@@ -569,3 +569,4 @@ Eventually, the DOM we saw actually mounted both Checkout component and it's Con
 
 
  ## Adding an Orders page
+ - Added order container to show order page
