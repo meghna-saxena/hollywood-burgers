@@ -446,3 +446,21 @@ purchaseContinueHandler = () => {
 - Add checkout form before saving the order in the backend
 - When user clicks checkout show checkout summary and if he clicks continue show contact form
 - made checkout summary component where burger preview + cancel and continue buttons are present
+
+
+## Setting up routing & routes
+- Install react-router-dom
+- Wrap everything we want to route with browser router, so wrap whole pp component with browser router
+
+```
+const app = (
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
+);
+
+ReactDOM.render(app, document.getElementById('root'));
+
+```
+
+- Now routing is enabled so, setup some routes
