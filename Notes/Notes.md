@@ -477,3 +477,19 @@ ReactDOM.render(app, document.getElementById('root'));
 
 - exact is used to mention the specific path.
 - If switch is used order of routes is important, since it loads the first path which matches the url
+
+
+## Navigating to checkout page
+- Since burger builder component is wrapped in route object, it has access to match, history, location props. We can check this by console.log(this.props) inside componentDidMount.
+
+- Inside purchaseContinueHandler instead of making an axios.post req directly, we want to navigate to checkout page so wrote this line - 
+
+```
+this.props.history.push('/checkout');
+```
+
+> Note: 
+
+ - - The nested component inside burger builder comp doesnt have access to props, they have to be passed manually
+ - - Howver if we use a hoc (withRouter) provided by react-router-dom we can inject the special props inside any component
+ - - wrap the export statement with withRouter and then console.log(props) -> match, history props would be available
