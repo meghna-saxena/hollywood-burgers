@@ -545,3 +545,14 @@ const queryParams = [];
         this.setState({ ingredients: ingredients });
     }
 ```
+
+## Navigating to the contact-data component
+- A container since it will its loaded by routing, manages its own state especially forms
+
+After we click the continue button, the url becomelocalhost:3000/checkout/contact-data . 
+
+Then in App.js , <Route path="/checkout" component={Checkout} />  will route Checkout component but will not mount and not update again because it's already mounted and nothing need to be updated.
+
+Then in Checkout.js , the app mounts the ContactData component  because the Route for ContactData component  is nested in Checkout component and it matchs the url localhost:3000/checkout/contact-data.
+
+Eventually, the DOM we saw actually mounted both Checkout component and it's ContactData component.
