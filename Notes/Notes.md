@@ -556,3 +556,16 @@ Then in App.js , <Route path="/checkout" component={Checkout} />  will route Che
 Then in Checkout.js , the app mounts the ContactData component  because the Route for ContactData component  is nested in Checkout component and it matchs the url localhost:3000/checkout/contact-data.
 
 Eventually, the DOM we saw actually mounted both Checkout component and it's ContactData component.
+
+
+## Order submission & passing data b/w pages
+- Made an order handler inside contact data component
+- Need access to ingredients & contact data
+- passing ingredients from checkout component to contact-data component, for this not using component{} instead render{} property of Route
+
+```
+ render={() => (<ContactData ingredients={this.state.ingredients} />)} />
+ ```
+
+
+ ## Adding an Orders page
