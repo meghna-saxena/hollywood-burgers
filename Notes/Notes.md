@@ -571,4 +571,18 @@ Eventually, the DOM we saw actually mounted both Checkout component and it's Con
  ## Adding an Orders page
  - Added order container to show order page
  - Implemented navigation links on the navbar
- 
+
+ _______________________________________________
+
+ ## Forms & forms validation
+
+ - Handling user input the right way
+  - - Handling input by two-way binding
+
+
+## Analyzing contact data form
+- What kind of data is needed in the state, store it in state and then dynamcally generate the form
+- Handle form submission, form validity and change styling depending on form validation
+- created custom input fields
+
+## Setting up JS config for the form
