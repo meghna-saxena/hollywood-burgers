@@ -617,3 +617,22 @@ const order = {
     orderData: formData
 }
 ```
+
+
+#### Difference between `<form onSubmit={...}>`  and `<button onClick={...}>`  
+
+Each method has different consequences.
+
+`<form onSubmit={...}>`: 
+1)  Will attempt a page reload.   
+2)  Submit the whole form.   
+3)  Will represent the form (see 7 below). 
+4)  Requires event.preventDefault(); to only invoke its referenced method (orderHandler). 
+
+`<button onClick={...}>` : 
+5) Won't attempt a page reload (see 1 above).   
+6) Only invoke its referenced method (see #2 above). 
+7) Will represent the button, not the form (see 3 above). 
+8)  Doesn't require event.preventDefault(); to only invoke its referenced method (see 4 above). 
+
+Use `<form onSubmit={...}>` for multiple `<form>` content, and use `<button onClick={...}>` if it just concerns one DOM element.

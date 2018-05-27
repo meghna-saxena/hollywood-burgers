@@ -29,11 +29,9 @@ class Orders extends Component {
     }
 
     render() {
-        console.log("orders from render", this.state.orders)
         return (
             <div>
                 {this.state.orders.map(order => {
-                    // console.log("order from map func", order);
                     return <Order
                         key={order.id}
                         ingredients={order.ingredients}
