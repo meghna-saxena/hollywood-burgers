@@ -598,3 +598,22 @@ Eventually, the DOM we saw actually mounted both Checkout component and it's Con
 ## Handling user input
 - created onChange handlers on input fields
 - updating orderForm state by two-way binding
+
+
+## Handling form submission
+- Use onSubmit event handler on <form> element itself
+- prevent event default, to prevent sending the req automatially that reload the page
+- submitting orderData to the server
+
+```
+const formData = {};
+    for (let formElementIdentifier in this.state.orderForm) {
+        formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
+}
+
+const order = {
+    ingredients: this.props.ingredients,
+    price: this.props.price,
+    orderData: formData
+}
+```
