@@ -586,3 +586,8 @@ Eventually, the DOM we saw actually mounted both Checkout component and it's Con
 - created custom input fields
 
 ## Setting up JS config for the form
+- creating a orderForm property inside state in contact data - index.js
+
+
+## Dynamically create inputs based on JS config
+Create orderform in an array to loop through. An array is a javascript object where key is identifier property and there's still other properties

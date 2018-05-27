@@ -4,15 +4,28 @@ import classes from './FormInput.css';
 const formInput = (props) => {
     let inputElement = null;
 
-    switch (props.elementType) {
+    switch (props.elementtype) {
         case ('input'):
-            inputElement = <input className={classes.InputElement} {...props.elementConfig} value={props.value} />;
+            inputElement = <input className={classes.InputElement} {...props.elementconfig} value={props.value} />;
             break;
         case ('textarea'):
-            inputElement = <textarea className={classes.InputElement} {...props} value={props.value} />;
+            inputElement = <textarea className={classes.InputElement} {...props.elementconfig} value={props.value} />;
+            break;
+        case ('select'):
+            inputElement = (
+                <select
+                    className={classes.InputElement}
+                    value={props.value}>
+                    {props.elementconfig.options.map(option => (
+                        <option key={option.value} value={option.value}>
+                            {option.displayValue}
+                        </option>
+                    ))}
+                </select>
+            );
             break;
         default:
-            inputElement = <input className={classes.InputElement} {...props} value={props.value} />;
+            inputElement = <input className={classes.InputElement} {...props.elementconfig} value={props.value} />;
     }
     return (
         <div className={classes.Input}>

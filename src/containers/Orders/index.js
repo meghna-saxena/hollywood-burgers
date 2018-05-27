@@ -18,9 +18,9 @@ class Orders extends Component {
                         ...res.data[key],
                         id: key
                     });
-                    console.log('fetchedOrders', fetchedOrders)
+                    // console.log('fetchedOrders', fetchedOrders)
                 }
-                console.log(res.data);
+                // console.log(res.data);
                 this.setState({ loading: false, orders: fetchedOrders })
             })
             .catch(err => {
@@ -33,7 +33,7 @@ class Orders extends Component {
         return (
             <div>
                 {this.state.orders.map(order => {
-                    console.log("order from map func", order);
+                    // console.log("order from map func", order);
                     return <Order
                         key={order.id}
                         ingredients={order.ingredients}
