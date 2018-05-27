@@ -590,4 +590,11 @@ Eventually, the DOM we saw actually mounted both Checkout component and it's Con
 
 
 ## Dynamically create inputs based on JS config
-Create orderform in an array to loop through. An array is a javascript object where key is identifier property and there's still other properties
+- Create orderform in an array to loop through. An array is a javascript object where key is identifier property with other properties
+- Passing the form data to create dynamic input fields
+- Added dropdown input component for choosing delivery method
+
+
+## Handling user input
+- created onChange handlers on input fields
+- updating orderForm state by two-way binding
