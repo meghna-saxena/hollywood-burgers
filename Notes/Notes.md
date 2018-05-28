@@ -636,3 +636,11 @@ Each method has different consequences.
 8)  Doesn't require event.preventDefault(); to only invoke its referenced method (see 4 above). 
 
 Use `<form onSubmit={...}>` for multiple `<form>` content, and use `<button onClick={...}>` if it just concerns one DOM element.
+
+
+## Adding custom form validation
+- Angular has built-in validation package, react hasn't.
+- Built checkvalidation funct
+
+## Adding validation feedback
+- Added touched and validation properties to show red input boxes
