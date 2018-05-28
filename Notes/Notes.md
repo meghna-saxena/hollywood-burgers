@@ -687,3 +687,7 @@ In your `CSS file`, you could have:
     margin: 5px 0;
 } 
 ```
+
+
+## Handling overall form validity
+- Turn off order btn if the form is invalid.
