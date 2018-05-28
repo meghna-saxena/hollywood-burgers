@@ -26,3 +26,9 @@ const app = (
     </Provider>
 );
 ```
+
+
+### Created reducer
+- Reducer is a function taking state and action
+- make switch statement for actionType
+- for different action case, return the reqd. 
