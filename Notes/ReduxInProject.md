@@ -32,3 +32,22 @@ const app = (
 - Reducer is a function taking state and action
 - make switch statement for actionType
 - for different action case, return the reqd. 
+
+
+### Connecting burger builder container to store
+```
+
+const mapStateToProps = state => {
+    return {
+        ings: state.ingredients
+    };
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onIngredientAdded: (ingName) => dispatch({type: actionTypes.ADD_INGREDIENT, ingredientName: ingName}), //pasing payload along with action.type
+        
+        onIngredientRemoved: (ingName) => dispatch({type: actionTypes.REMOVE_INGREDIENT, ingredientName: ingName}),
+    };
+}
+```
