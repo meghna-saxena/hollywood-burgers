@@ -85,3 +85,28 @@ const mapDispatchToProps = dispatch => {
     };
 }
 ```
+
+
+### mapDispatchToProps or dispatch in component itself
+
+You don't have to use mapDispatchToProps - but it's the recommend way since it provides and easy-to-understand, predictable way of dispatching actions. It's a good pattern and practice to use the connect() HOC and bind all the data/ actions you get from Redux to normal component props.
+
+
+### Total price calculation
+- Price changes whenever ingredient is added or removed
+- 2 approach  
+- - Either define new action type for price change and handle the state in reducer
+- - Or update price in the exisiting action types itself
+
+```
+switch (action.type) {
+        case actionType.ADD_INGREDIENT:
+            return {
+                ...state,
+                ingredients: {
+                    ...state.ingredients,
+                    [action.ingredientName]: state.ingredients[action.ingredientName] + 1
+                },
+                totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName]
+            };
+```
