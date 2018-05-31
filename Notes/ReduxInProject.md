@@ -110,3 +110,10 @@ switch (action.type) {
                 totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName]
             };
 ```
+
+
+### Redux and UI state
+- Enbale order now button
+- The property which determine it is `purchasable` property 
+- It can either be handled inside the component
+- Or it can also be managed by redux
