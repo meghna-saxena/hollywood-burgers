@@ -33,6 +33,40 @@ const app = (
 - make switch statement for actionType
 - for different action case, return the reqd. 
 
+```
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
+        case actionType.ADD_INGREDIENT:
+            return {
+                ...state,
+                ingredients: {
+                    ...state.ingredients,
+                    [action.ingredientName]: state.ingredients[action.ingredientName] + 1
+                }
+            };
+        case actionType.REMOVE_INGREDIENT:
+            return {
+                ...state,
+                ingredients: {
+                    ...state.ingredients,
+                    [action.ingredientName]: state.ingredients[action.ingredientName] - 1
+                }
+            };
+        default:
+            return state;
+    }
+};
+
+```
+
+used [action.ingredientName]  because we’re dynamically accessing the property, i.e. we don’t previously know which property we have to access (salad? bacon? cheese? meat?). ingredientName is a parameter that will have to be passed when we dispatch these action:
+
+```
+dispatch({
+  type: actionTypes.ADD_INGREDIENT,
+  ingredientName: 'meat'
+})
+```
 
 ### Connecting burger builder container to store
 ```
