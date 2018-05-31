@@ -117,3 +117,6 @@ switch (action.type) {
 - The property which determine it is `purchasable` property 
 - It can either be handled inside the component
 - Or it can also be managed by redux
+
+### Adjusted checkout and contact data
+- Connected the container with store to get ingredients and price from reducer state
